@@ -20,26 +20,6 @@
             },
         }
     </script>
-    <style>
-        .circuit-container {
-            background-color: #001a00;
-            background-image: 
-                linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            position: relative;
-        }
-        .circuit-line {
-            position: absolute;
-            background-color: #00ff00;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.5; }
-        }
-            </style>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -47,7 +27,7 @@
     });
 </script>
 </head>
-<body class="bg-secondary text-primary circuit-container absolute inset-0 min-h-screen font-mono flex flex-col">
+<body class="bg-secondary text-primary min-h-screen font-mono flex flex-col">
    <header class="p-4">
        <div class="fixed top-5 left-1/2 border-2 border-primary transform -translate-x-1/2 bg-secondary px-6 py-3 rounded-full shadow-lg">
     <nav class="flex space-x-2">
@@ -169,32 +149,5 @@ Things I use to make Website
             <br><br>
         <p>&copy; 2024 Subhadeep Paul. All rights reserved.</p>
     </footer>
-
-    <script>
-        const container = document.querySelector('.circuit-container');
-        const lineCount = 20;
-
-        for (let i = 0; i < lineCount; i++) {
-            const line = document.createElement('div');
-            line.classList.add('circuit-line');
-            
-            const isHorizontal = Math.random() > 0.5;
-            const length = Math.random() * 100 + 50;
-            const thickness = Math.random() * 2 + 1;
-            
-            line.style.width = isHorizontal ? `${length}px` : `${thickness}px`;
-            line.style.height = isHorizontal ? `${thickness}px` : `${length}px`;
-            line.style.left = `${Math.random() * 100}%`;
-            line.style.top = `${Math.random() * 100}%`;
-            line.style.animation = `pulse ${Math.random() * 3 + 2}s infinite`;
-            
-            container.appendChild(line);
-        }
-
-        setInterval(() => {
-            const lines = document.querySelectorAll('.circuit-line');
-            lines[Math.floor(Math.random() * lines.length)].style.opacity = 1;
-        }, 200);
-            </script>
 </body>
-                        </html>
+                </html>
